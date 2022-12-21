@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
+* {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* Background */
+
+#bkg-img {
+  position: fixed;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background-image: url(./bkg.png);
+  background-position: right top;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  filter: blur(3px);
+}
+
+/* Page Content */
+
+#content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #c6c6f9;
+}
+
+/* Form */
+
+#form {
+  display: flex;
+  width: 50%;
+  margin: 1% 0 0.3% 0;
+  text-align: center;
+}
+
+.form-control {
+  border: 1px solid #dc3545;
+}
+
+.btn {
+  margin-left: 2%;
+}
+
+/* Toast */
+
+.toast-container {
+  margin: 0 0 0 35%;
+}
+
+#liveToast {
+  width: fit-content;
+}
+
+/* Cards Section */
+
+#card-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 30px;
+  justify-content: flex-start;
+}
+
+/* Individual Card */
+
+#card {
+  border: 3px solid #11155c;
+  width: 13rem;
+  border-radius: 15px;
+  margin: 1%;
+  background-color: #c6c6f9;
+  padding: 1%;
+}
+
+#city {
+  color: #3f5174;
+  text-align: center;
+}
+
+#temp,
+#time {
+  font-size: 1.3rem;
+  margin-bottom: 0px;
+}
+
+#weather {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 0px;
+}
+
+#icon {
+  width: 100%;
+}
