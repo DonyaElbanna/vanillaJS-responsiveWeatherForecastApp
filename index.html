@@ -17,6 +17,10 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
   </head>
 
   <body>
@@ -36,14 +40,34 @@
         </form>
         <div class="toast-container">
           <div
-            id="liveToast"
+            id="errorToast"
             class="toast"
             role="alert"
             aria-live="assertive"
             aria-atomic="true"
           >
             <div class="toast-header">
-              <strong>Enter a valid City Name.</strong>
+              <strong>City Name is not correct.</strong>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+              ></button>
+            </div>
+          </div>
+          <div
+            id="duplicateToast"
+            class="toast"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+            <div class="toast-header">
+              <strong
+                >Duplicate search, or add the country code to be more
+                specific.</strong
+              >
               <button
                 type="button"
                 class="btn-close"
