@@ -13,7 +13,9 @@ btn.addEventListener("click", (e) => {
   fetch(`${apiUrl}q=${input}&appid=${apiKey}&units=metric`)
     .then((response) => response.json())
     .then((data) => {
-      let cityData = data.name;
+      let cityData = data.name.includes(" ")
+        ? data.name.replace(" ", "")
+        : data.name;
       let conutryData = data.sys.country;
       let tempData = data.main.temp;
       let weatherData = data.weather[0].description.toUpperCase();
@@ -34,7 +36,8 @@ btn.addEventListener("click", (e) => {
       const div = document.createElement("div");
       div.setAttribute("class", "tempCard");
       const markup = `<div>
-        <h3 class="city" style="margin-bottom: 0">${cityData}, ${conutryData}</h3>
+        <h3 class="city" style="margin-bottom: 0">${input}, ${conutryData}</h3> 
+        <!-- <span id='close'>&#10006;</span> --!>
         <p class="temp"><strong>${Math.round(
           tempData
         )}</strong><sup style="font-size:1.8rem">°C</sup></p>
@@ -94,7 +97,7 @@ btn.addEventListener("click", (e) => {
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content modal2-bkg">
             <div class="modal-body">
-            <h3 class="modal2-title"> ${cityData + ", " + conutryData}</h3>
+            <h3 class="modal2-title"> ${input + ", " + conutryData}</h3>
               <div id=${
                 cityData + conutryData + "forecast"
               } class="forecast-container"> 
@@ -125,6 +128,14 @@ btn.addEventListener("click", (e) => {
       div.innerHTML = markup;
       cardInfo.appendChild(div);
 
+      // const hide = () => {
+      //   let tempCard = document.querySelector(".tempCard");
+      //   tempCard.style.display = "none";
+      // };
+
+      // let closeBtn = document.getElementById("close");
+      // closeBtn.onclick = () => hide();
+
       // MODAL ONE
 
       const modalOne = document.getElementById(cityData + conutryData);
@@ -134,7 +145,7 @@ btn.addEventListener("click", (e) => {
           cityData + conutryData + "info"
         );
         modalOneBody.innerHTML = `<h3 class="modal1-title">${
-          cityData + ", " + conutryData
+          input + ", " + conutryData
         }</h3>
         <p class="info-item">
           <span class="material-symbols-outlined">
@@ -150,12 +161,15 @@ btn.addEventListener("click", (e) => {
         </span>  Precipitation: ${precip} </p>`;
       });
 
+      // Closing a tempCard
+
       // MODAL TWO
+
       const modalTwo = document.getElementById(cityData + conutryData + "f");
       modalTwo.addEventListener("show.bs.modal", (event) => {
         const button = event.relatedTarget;
-        const inputForecast = cityData + "," + conutryData;
-        // console.log(data[1].main.temp);
+        const inputForecast = input + "," + conutryData;
+
         fetch(
           `${apiForecastUrl}q=${inputForecast}&appid=${apiKey}&units=metric`
         )
@@ -284,6 +298,8 @@ btn.addEventListener("click", (e) => {
   document.getElementById("city-search").value = "";
   document.getElementById("city-search").focus();
 });
+
+// console.log(document.getElementsByClassName("close"));
 
 // The old way to fetch data
 /*

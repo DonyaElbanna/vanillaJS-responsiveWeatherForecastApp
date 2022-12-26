@@ -16,12 +16,24 @@
   display: block;
   width: 100%;
   height: 100vh;
-  background-image: url(./bkg.png);
+  background-image: url(./bkggif.gif);
   background-position: right top;
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
-  filter: blur(3px);
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: grey;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #11155c;
 }
 
 /* Page Content */
@@ -55,9 +67,6 @@ h1 {
 .btn {
   margin-left: 2%;
 }
-/* input {
-  -webkit-appearance: none;
-} */
 
 /* Toast */
 
@@ -77,14 +86,10 @@ h1 {
 
 #card-info {
   display: grid;
-  /* flex-direction: row; */
-  /* flex-wrap: wrap; */
   width: 100%;
-  /* margin: auto; */
   grid-gap: 1%;
   grid-template-columns: repeat(5, 1fr);
   margin-top: 30px;
-  /* justify-content: flex-start; */
 }
 
 /* Individual Card */
@@ -100,7 +105,9 @@ h1 {
 .city {
   color: #3f5174;
   text-align: center;
-  margin-top: 2%;
+  /* margin-left: 5%; */
+  text-transform: capitalize;
+  /* font-size: 2rem; */
 }
 
 .temp {
@@ -110,12 +117,6 @@ h1 {
   margin-bottom: 0px;
 }
 
-/* .time {
-  font-size: 1.3rem;
-  margin-bottom: 0px;
-  padding-left: 3%;
-} */
-
 .weather {
   text-align: center;
   font-size: 1.2rem;
@@ -124,6 +125,21 @@ h1 {
 
 .icon {
   width: 50%;
+}
+
+#close {
+  float: right;
+  font-size: 1.3rem;
+  margin-right: 3%;
+  cursor: pointer;
+}
+
+#close:hover {
+  color: #a20736;
+}
+
+.hide {
+  display: none;
 }
 
 /* MODALS */
@@ -159,10 +175,12 @@ h1 {
 
 .modal1-title {
   color: #a20736;
+  text-transform: capitalize;
 }
 
 .modal2-title {
   text-align: center;
+  text-transform: capitalize;
 }
 
 .modal2-date {
@@ -217,15 +235,6 @@ figure {
   border-top: none !important;
 }
 
-/* .info > p {
-  font-size: 1.3rem;
-  margin-bottom: 0rem;
-}
-
-.info {
-  margin-top: 5%;
-  padding-left: 3%;
-} */
 /* Media Queries */
 
 @media screen and (max-width: 1100px) {
