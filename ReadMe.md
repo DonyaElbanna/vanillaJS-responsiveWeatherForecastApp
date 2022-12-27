@@ -24,7 +24,7 @@ A responsive weather app website that ues Bootstrap for styling, to fetch the we
 
 #### Mobile View
 
-![ Mobile View](demo/forecast-week.PNG)
+![Mobile View](demo/forecast-mobile.PNG)
 
 ### Credits:
 
